@@ -2,6 +2,8 @@
 
 > Want to learn how to build command-line interface (CLI) apps using Go? Join this talk to discover the basics of CLI development and advanced techniques for creating powerful, efficient, and user-friendly CLI apps using Go.
 
+![Building Go CLI App](./assets/building-go-cli-app_main.png)
+
 Are you interested in building command-line interface (CLI) apps using Go, but not sure where to start? This engaging talk will provide you with all the information you need to build powerful, efficient, and user-friendly CLI apps using the native “flag” module in Go.
 
 We’ll begin with an introduction to CLI development and explore the advantages of building CLI apps in Go. You’ll then learn about the “flag” module in Go, which is a powerful and flexible way to handle command-line arguments. We’ll cover best practices for building CLI apps using “flag”, including handling user input, parsing data, and generating multiple random data.
@@ -13,8 +15,8 @@ You don’t need to be an experienced developer to attend this talk - it’s per
 Here is the outline for the talk.
 
 ## Prerequisites
-* Basic knowledge about Go Programming Language
-* VSCode or Goland IDE
+* Basic knowledge about [Go Programming Language](https://go.dev/)
+* [VSCode](https://code.visualstudio.com/) or [Goland IDE](https://www.jetbrains.com/go/)
 * [JSON](https://www.json.org/json-en.html)
 
 ## Building CLI App in Go: Generating Randomized Data
