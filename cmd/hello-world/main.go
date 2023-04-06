@@ -9,8 +9,7 @@ import (
 )
 
 func main() {
-	name := ""
-	flag.StringVar(&name, "name", "", "The name to say hello to.")
+	name := flag.String("name", "", "The name to say hello to.")
 	// flag.StringVar(&name, "n", "", "The name to say hello to.")
 	getopt.Aliases(
 		"n", "name",
@@ -18,9 +17,12 @@ func main() {
 
 	getopt.Parse()
 
-	if name == "" {
+	if name != nil && *name == "" {
 		getopt.PrintDefaults()
 		os.Exit(0)
 	}
-	fmt.Println("Hello,", name)
+
+	if name != nil {
+		fmt.Println("Hello,", *name)
+	}
 }
