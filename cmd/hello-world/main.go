@@ -2,30 +2,20 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"os"
-
-	"rsc.io/getopt"
 )
 
 func main() {
-	totalArgs := len(os.Args[1:])
+	var name string
+	flag.StringVar(&name, "name", "", "The name to say hello to.")
+	flag.StringVar(&name, "n", "", "The name to say hello to.")
 
-	f := getopt.NewFlagSet("Abhisek's CLI", flag.ExitOnError)
+	flag.Parse()
 
-	var help bool
-	f.BoolVar(&help, "help", totalArgs == 0, "Show help")
-
-	f.Aliases(
-		"h", "help",
-	)
-
-	err := f.Parse(os.Args[1:])
-	if err != nil {
-		return
-	}
-
-	if help {
-		getopt.PrintDefaults()
+	if name == "" {
+		flag.PrintDefaults()
 		os.Exit(0)
 	}
+	fmt.Println("Hello,", name)
 }
