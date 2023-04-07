@@ -1,0 +1,8 @@
+github.com/ImpelsysInc/go-ptr v0.0.2 h1:cT7iN6F1ws7Vb2Igi+KvvJGoAVndCqEDkq9v8W3nygU=
+github.com/ImpelsysInc/go-ptr v0.0.2/go.mod h1:KAFfKp66SZQqnOPR3intq95eKSTn1pZZbt/O6g/Hp/c=
+github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
+github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
+github.com/stretchr/testify v1.8.1 h1:w7B6lhMri9wdJUVmEZPGGhZzrYTPvgJArz7wNPgYKsk=
+gopkg.in/yaml.v3 v3.0.1 h1:fxVm/GzAzEWqLHuvctI91KS9hhNmmWOoWu0XTYJS7CA=
+rsc.io/getopt v0.0.0-20170811000552-20be20937449 h1:UukjJOsjQH0DIuyyrcod6CXHS6cdaMMuJmrt+SN1j4A=
+rsc.io/getopt v0.0.0-20170811000552-20be20937449/go.mod h1:dhCdeqAxkyt5u3/sKRkUXuHaMXUu1Pt13GTQAM2xnig=

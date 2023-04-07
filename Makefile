@@ -8,7 +8,7 @@ install:
 uninstall:
 	rm -f `which xml-cli`
 
-build: deps
+build: clean deps
 	go build -o bin/ -ldflags='$(LDFLAGS)' ./...
 
 deps:
@@ -16,4 +16,5 @@ deps:
 	go mod vendor -v
 
 clean:
+	rm -rf bin/*
 	go clean -x ./...
