@@ -1,0 +1,15 @@
+{
+  "$schema": "cmd/rand-cli/person.schema.json",
+  "firstName": [
+    "John",
+    "Dave",
+    "Jane"
+  ],
+  "lastName": "Doe",
+  "country": "India",
+  "state": "Maharashtra",
+  "city": [
+    "Mumbai",
+    "Pune"
+  ]
+}
