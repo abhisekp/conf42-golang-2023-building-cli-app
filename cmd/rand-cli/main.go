@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"time"
 
 	"github.com/brianvoe/gofakeit/v6"
@@ -10,25 +11,22 @@ import (
 )
 
 type Address struct {
-	Street  string
-	City    string
-	Pincode string
-	State   string
-	Country string
+	Street  string `fake:"{street}"`
+	City    string `fake:"{city}"`
+	Pincode string `fake:"{zip}"`
+	State   string `fake:"{state}"`
+	Country string `fake:"{country}"`
 }
 
 func main() {
 	seed := time.Now().Unix()
 	faker := gofakeit.New(seed)
 
-	fakeAddr := faker.Address()
-
-	addr := Address{
-		Street:  fakeAddr.Street,
-		City:    fakeAddr.City,
-		Pincode: fakeAddr.Zip,
-		State:   fakeAddr.State,
-		Country: fakeAddr.Country,
+	var addr Address
+	err := faker.Struct(&addr)
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
 	}
 
 	spew.Dump(addr)
