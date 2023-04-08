@@ -48,3 +48,5 @@ Here is the outline for the talk.
 ### Conclusion
 * Summary of key takeaways
 * Additional resources for learning Go and building CLI apps
+
+![Abhisek Pattnaik at Conf42 Golang 2023](./assets/Abhisek_Pattnaik_Conf42_Golang_2023.jpg)
