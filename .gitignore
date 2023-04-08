@@ -43,3 +43,4 @@ go.work
 
 ### CUSTOM IGNORES ###
 /*.schema.json
+*.*prof
