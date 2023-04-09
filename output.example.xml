@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Persona xsi:noNamespaceSchemaLocation="./output.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>Example</Name>
+  <DateCreated>2023-04-09T16:46:35+05:30</DateCreated>
+  <Person>
+    <FirstName>Ollie</FirstName>
+    <LastName>Kihn</LastName>
+    <Street>63527 Circles view</Street>
+    <City>Hialeah</City>
+    <Pincode>18866</Pincode>
+    <State>Delaware</State>
+    <Country>American Samoa</Country>
+    <Age>5</Age>
+  </Person>
+  <Person>
+    <FirstName>Davonte</FirstName>
+    <LastName>Goyette</LastName>
+    <Street>2754 Lake Island furt</Street>
+    <City>Philadelphia</City>
+    <Pincode>99645</Pincode>
+    <State>Oklahoma</State>
+    <Country>United States of America</Country>
+    <Age>11</Age>
+  </Person>
+</Persona>

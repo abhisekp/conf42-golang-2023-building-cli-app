@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Persona">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="Name" type="xs:string"/>
+                <xs:element minOccurs="0" name="DateCreated" type="xs:string"/>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="Person">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="FirstName" type="xs:string"/>
+                            <xs:element minOccurs="0" name="LastName" type="xs:string"/>
+                            <xs:element minOccurs="0" name="Street" type="xs:string"/>
+                            <xs:element minOccurs="0" name="City" type="xs:string"/>
+                            <xs:element minOccurs="0" name="Pincode" type="xs:string"/>
+                            <xs:element minOccurs="0" name="State" type="xs:string"/>
+                            <xs:element minOccurs="0" name="Country" type="xs:string"/>
+                            <xs:element minOccurs="0" name="Age" type="xs:string"/>
+                            <xs:element minOccurs="0" name="Dob" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

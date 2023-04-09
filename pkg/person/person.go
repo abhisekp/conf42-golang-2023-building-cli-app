@@ -10,18 +10,23 @@ import (
 )
 
 type Address struct {
-	Street  string `fake:"{street}"`
-	City    string `fake:"{city}"`
-	Pincode string `fake:"{zip}"`
-	State   string `fake:"{state}"`
-	Country string `fake:"{country}"`
+	Street  string `json:"street" xml:"Street" fake:"{street}"`
+	City    string `json:"city" xml:"City" fake:"{city}"`
+	Pincode string `json:"pincode" xml:"Pincode" fake:"{zip}"`
+	State   string `json:"state" xml:"State" fake:"{state}"`
+	Country string `json:"country" xml:"Country" fake:"{country}"`
 }
 
 type Person struct {
-	FirstName string `json:"firstName" fake:"{firstname}"`
-	LastName  string `json:"lastName" fake:"{lastname}"`
-	Address   `json:"address"`
-	Meta      `json:"meta"`
+	FirstName string `json:"firstName" xml:"FirstName" fake:"{firstname}"`
+	LastName  string `json:"lastName" xml:"LastName" fake:"{lastname}"`
+	Address   `json:"address" xml:"Address"`
+	Meta      `json:"meta" xml:"Meta"`
+}
+
+type Meta struct {
+	Age int        `json:"age" xml:"Age" fake:"{number:0,100}"`
+	Dob *time.Time `json:"dob" xml:"-"`
 }
 
 func (p *Person) String() string {
@@ -79,11 +84,6 @@ func (p *Person) String() string {
 	return personStr.String()
 }
 
-type Meta struct {
-	Age int        `json:"age" fake:"{number:0,100}"`
-	Dob *time.Time `json:"dob"`
-}
-
 var (
 	seed  = time.Now().Unix()
 	faker = gofakeit.New(seed)
@@ -98,4 +98,42 @@ func NewPerson() *Person {
 	}
 
 	return &person
+}
+
+type GenPersonOptions struct {
+	_           struct{}
+	Concurrency int
+}
+
+var defaultOption = GenPersonOptions{
+	Concurrency: 10,
+}
+
+// GenPersons generates a `n` number of Person(s)
+func GenPersons(n int, options ...GenPersonOptions) []*Person {
+	option := defaultOption
+
+	if len(options) > 0 {
+		option = options[0]
+	}
+
+	persons := make([]*Person, n)
+	// Semaphore to limit the number of concurrent goroutines
+	sem := make(chan int, option.Concurrency)
+
+	for i := 0; i < n; i++ {
+		sem <- i
+		go func(i int) {
+			p := NewPerson()
+			persons[i] = p
+			<-sem
+		}(i)
+	}
+
+	// Wait for all goroutines to finish
+	for i := 0; i < cap(sem); i++ {
+		sem <- i
+	}
+
+	return persons
 }
