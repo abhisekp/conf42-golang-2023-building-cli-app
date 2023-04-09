@@ -1,0 +1,11 @@
+{
+  "$schema": "./input.schema.json",
+  "firstName": "",
+  "lastName": "",
+  "street": "",
+  "city": "",
+  "pincode": "",
+  "state": "",
+  "country": "",
+  "age": 0
+}

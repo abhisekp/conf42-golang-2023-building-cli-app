@@ -15,7 +15,11 @@ import (
 )
 
 //go:embed output.xsd
-var xmlSchema string
+var xmlSchema []byte
+
+func GetXMLSchema() string {
+	return string(xmlSchema)
+}
 
 func GenXMLData(name string, persons []*person.Person) xml_data.Root {
 	return xml_data.Root{
@@ -48,8 +52,9 @@ func GenXML(xmlData xml_data.Root, writer io.Writer) error {
 }
 
 type CreateXMLFileOptions struct {
-	Concurrency int
-	ForceCreate bool
+	Concurrency      int
+	ForceCreate      bool
+	PredefinedPerson *person.Person
 }
 
 var defaultCreateXMLFileOptions = CreateXMLFileOptions{
@@ -99,7 +104,8 @@ func CreateXMLFile(absFilepath, name string, numPersons int, options ...CreateXM
 	}(file)
 
 	persons := person.GenPersons(numPersons, person.GenPersonOptions{
-		Concurrency: concurrency,
+		Concurrency:      concurrency,
+		PredefinedPerson: option.PredefinedPerson,
 	})
 	xmlData := GenXMLData(name, persons)
 
@@ -134,7 +140,7 @@ func CreateSchemaFile(xmlFilepath string) error {
 		}
 	}(file)
 
-	_, err = file.WriteString(xmlSchema)
+	_, err = file.WriteString(GetXMLSchema())
 	if err != nil {
 		return err
 	}

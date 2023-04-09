@@ -101,8 +101,9 @@ func NewPerson() *Person {
 }
 
 type GenPersonOptions struct {
-	_           struct{}
-	Concurrency int
+	_                struct{}
+	Concurrency      int
+	PredefinedPerson *Person
 }
 
 var defaultOption = GenPersonOptions{
@@ -125,6 +126,9 @@ func GenPersons(n int, options ...GenPersonOptions) []*Person {
 		sem <- i
 		go func(i int) {
 			p := NewPerson()
+			if option.PredefinedPerson != nil {
+				copyPerson(option.PredefinedPerson, p)
+			}
 			persons[i] = p
 			<-sem
 		}(i)
@@ -136,4 +140,34 @@ func GenPersons(n int, options ...GenPersonOptions) []*Person {
 	}
 
 	return persons
+}
+
+func copyPerson(from, to *Person) {
+	if from.FirstName != "" {
+		to.FirstName = from.FirstName
+	}
+	if from.LastName != "" {
+		to.LastName = from.LastName
+	}
+	if from.Address.Street != "" {
+		to.Address.Street = from.Address.Street
+	}
+	if from.Address.City != "" {
+		to.Address.City = from.Address.City
+	}
+	if from.Address.Pincode != "" {
+		to.Address.Pincode = from.Address.Pincode
+	}
+	if from.Address.State != "" {
+		to.Address.State = from.Address.State
+	}
+	if from.Address.Country != "" {
+		to.Address.Country = from.Address.Country
+	}
+	if from.Age != 0 {
+		to.Age = from.Age
+	}
+	if from.Dob != nil {
+		to.Dob = from.Dob
+	}
 }
