@@ -49,4 +49,7 @@ Here is the outline for the talk.
 * Summary of key takeaways
 * Additional resources for learning Go and building CLI apps
 
-![Abhisek Pattnaik at Conf42 Golang 2023](./assets/Abhisek_Pattnaik_Conf42_Golang_2023.jpg)
+[![Abhisek Pattnaik at Conf42 Golang 2023](./assets/Abhisek_Pattnaik_Conf42_Golang_2023.jpg)](https://speakerdeck.com/abhisekp/building-go-cli-app)
+> Slide Presentation: [Building Go CLI App](https://speakerdeck.com/abhisekp/building-go-cli-app)
+
+[//]: # (> Video Presentation: [Building Go CLI App]&#40;https://www.youtube.com/watch?v=QZ4Z9Z9Z9Z9&#41;)
