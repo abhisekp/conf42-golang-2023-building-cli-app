@@ -18,6 +18,7 @@ Here is the outline for the talk.
 * Basic knowledge about [Go Programming Language](https://go.dev/)
 * [VSCode](https://code.visualstudio.com/) or [Goland IDE](https://www.jetbrains.com/go/)
 * [JSON](https://www.json.org/json-en.html)
+* [XML](https://www.w3schools.com/xml)
 
 ## Building CLI App in Go: Generating Randomized Data
 ### Introduction
