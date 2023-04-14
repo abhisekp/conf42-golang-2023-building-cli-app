@@ -11,7 +11,7 @@ import (
 func main() {
 	var name string
 	flag.StringVar(&name, "name", "", "The name to say hello to.")
-	flag.StringVar(&name, "n", "", "The name to say hello to.")
+
 	var repeat int
 	flag.IntVar(&repeat, "repeat", 1, "The number of times to repeat.")
 
