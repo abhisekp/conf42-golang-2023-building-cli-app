@@ -10,22 +10,22 @@ import (
 func main() {
 	totalArgs := len(os.Args[1:])
 
-	f := getopt.NewFlagSet("Abhisek's CLI", flag.ExitOnError)
+	fs := getopt.NewFlagSet("Abhisek's CLI", flag.ExitOnError)
 
 	var help bool
-	f.BoolVar(&help, "help", totalArgs == 0, "Show help")
+	fs.BoolVar(&help, "help", totalArgs == 0, "Show help")
 
-	f.Aliases(
+	fs.Aliases(
 		"h", "help",
 	)
 
-	err := f.Parse(os.Args[1:])
+	err := fs.Parse(os.Args[1:])
 	if err != nil {
 		return
 	}
 
 	if help {
-		getopt.PrintDefaults()
+		fs.Usage()
 		os.Exit(0)
 	}
 }
